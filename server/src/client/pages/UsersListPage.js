@@ -3,14 +3,12 @@ import { connect } from "react-redux";
 import {fetchUsers} from '../actions';
 
 
-class UsersList extends Component {
+class UsersListPage extends Component {
   componentDidMount(){
-   this.props.fetchUsers()
+    if(!this.props.users) this.props.fetchUsers()
   }
   renderUsers(){
-    console.log(this.props)
     return this.props.users.map(user =>{
-     
       return <li key={user.id}>{user.name}</li>
     })
   }
@@ -33,4 +31,11 @@ function mapStateToProps(state){
   }
 }
 
-export default connect(mapStateToProps, { fetchUsers })(UsersList)
+function loadData(store){
+  return store.dispatch(fetchUsers())
+}
+
+export default {
+  loadData,
+  component:connect(mapStateToProps, { fetchUsers })(UsersListPage)
+}
