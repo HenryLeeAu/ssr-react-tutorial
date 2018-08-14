@@ -5,7 +5,7 @@ import {fetchUsers} from '../actions';
 
 class UsersListPage extends Component {
   componentDidMount(){
-    if(!this.props.users) this.props.fetchUsers()
+    this.props.fetchUsers()
   }
   renderUsers(){
     return this.props.users.map(user =>{
