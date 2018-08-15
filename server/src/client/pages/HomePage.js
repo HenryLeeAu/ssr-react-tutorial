@@ -1,9 +1,9 @@
 import React from 'react'
 const HomePage =() =>{
   return ( 
-    <div>
-      <button onClick={()=>console.log('click me')}>Press me! </button>
-      <div>I'm the bery best     component</div>
+    <div className="center-align" style={{marginTop:'200px'}}>
+     <h3>Welcome</h3>
+     <p>check out these awesome features</p>
     </div>
   )
 }
